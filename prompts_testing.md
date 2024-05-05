@@ -1,7 +1,8 @@
 ## Model: gpt-4-turbo-2024-04-09
 
 ### Pure textual instructions
-1. 
+
+#### Naive instruction 
     - System: `Decompose this high-level motion instruction down to atomic descriptions.`
     - User: `A man raises both hands above the head.`
     - Outputs:
@@ -15,7 +16,7 @@
         7. The final position has both arms straight and hands above the head.
         ```
 
-2. 
+#### Naive recursive prompting
     - System:
         ```
         Decompose this high-level motion instruction down to a structured combination of atomic descriptions.
@@ -110,7 +111,7 @@
         This table focuses on specific body parts (like elbows, forearms, shoulders, and hands) and details their movements over prespecified time intervals, enhancing clarity and specificity for each phase of the motion. This format is helpful for precise movement assessments, biomechanical studies, or programming humanoid robots.
         ```
 
-3. Naive recursion
+#### Naive recursive prompting with programmatic input requirements
     - System:
         ```
         Decompose this high-level motion instruction down to a structured combination of atomic descriptions that can potentially serve as programmatic inputs into a computer graphics engine without substantive modification.
@@ -223,7 +224,7 @@
         This table provides clear and sequential details for animators, ensuring that each component of the motion is accounted for and happens at the precise time, perfect for detailed and accurate computer graphics animations. It simplifies tracking the progression of each part of the movement within a defined time frame.
         ```
 
-4. Step-by-step recursion
+#### Step-by-step recursive prompting
     - System:
         ```
         Decompose this high-level motion instruction down to a structured combination of atomic descriptions that can potentially serve as programmatic inputs into a computer graphics engine without substantive modification.
