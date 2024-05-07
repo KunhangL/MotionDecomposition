@@ -224,7 +224,7 @@
     ```
 
 #### Step-by-step recursive prompting
-1. 
+##### Simple motion 1
 - System:
     ```
     Decompose this high-level motion instruction down to a structured combination of atomic descriptions that can potentially serve as programmatic inputs into a computer graphics engine without substantive modification.
@@ -689,7 +689,7 @@
     ```
     This table effectively distinguishes between the states and motions of each body part at specific time intervals. It could be used as a direct reference in various applications such as character rigging or animation programming in computer graphics software, ensuring each aspect of the motion is accounted for accurately.
     ```
-2. 
+##### Simple motion 2
 - System:
     ```
     Decompose this high-level motion instruction down to a structured combination of atomic descriptions that can potentially serve as programmatic inputs into a computer graphics engine without substantive modification.
@@ -879,11 +879,465 @@
     ```
     This table showcases each specific action taken by the different body parts in a structured timeframe. It provides an easily accessible format for developers, animators, or CGI technicians to accurately model the squat motion in various software or scripting environments. Such a structured presentation ensures precise and consistent execution of the movement in digital animations or simulations.
     ```
+##### Complex motion 1
+- System:
+    ```
+    Decompose this high-level motion instruction down to a structured combination of atomic descriptions that can potentially serve as programmatic inputs into a computer graphics engine without substantive modification.
+    An atomic description specifies the movement of a certain body part in a certain time interval.
+    ```
+- User: `A person squats down then jumps.`
+- Assistant:
+    ```
+    To decompose the action of a person squatting down and then jumping into atomic descriptions suitable for a computer graphics engine, we can break down the motion into a series of detailed steps focusing on key body parts: the legs (including hips, knees, and ankles), arms, and the torso. Here’s how it can be split:
 
-#### Analysis
-1. When I ask the model to further recursively decompose in the second run, I can get more fine-grained atomic generation.
-2. Refinement into a table helps clearer representation.
+    1. **Starting Position**:
+    - Time Interval: t0 to t1
+    - Description: The person starts standing upright. Legs are straight with feet shoulder-width apart. Arms are relaxed by the sides. Torso is erect.
 
-#### TODO
-1. Try the methods with more complex motions
-2. Design a looping mechanism to really enable recursive decomposition.
+    2. **Squatting Down (Preparation Phase)**:
+    - Time Interval: t1 to t2
+    - Legs: Begin by bending at the hips and knees to lower the body. Keep the back straight and slightly leaned forward, heels on the ground.
+    - Arms: As the body lowers, extend arms forward parallel to the ground for balance.
+    - Torso: Maintains an erect posture, leans slightly forward to maintain balance.
+
+    3. **Bottom of Squat**:
+    - Time Interval: t2 to t3
+    - Legs: Knees are bent at approximately 90 degrees, thighs parallel to the ground, calves perpendicular to the ground. Heels remain in contact with the ground.
+    - Arms: Fully extended forward, parallel with the ground.
+    - Torso: Remains erect, leaned forward as needed for balance.
+
+    4. **Launching the Jump (Initial Jump Phase)**:
+    - Time Interval: t3 to t4
+    - Legs: Explosively extend the knees and hips to push off the ground. Toes flex as the body prepares to leave the ground.
+    - Arms: Pull arms back and then swing them upwards to gain additional momentum.
+    - Torso: Straightens and aligns with legs to form a straight line at peak of jump.
+
+    5. **Mid-Air Phase**:
+    - Time Interval: t4 to t5
+    - Legs: Slightly bent at knees and hips for a controlled posture mid-air.
+    - Arms: Continue upward motion, reaching above the head.
+    - Torso: Maintains straight alignment.
+
+    6. **Landing Phase**:
+    - Time Interval: t5 to t6
+    - Legs: Begin to bend at knees and hips to absorb the impact as the feet contact the ground.
+    - Arms: Swing downward to help stabilize and balance the body.
+    - Torso: Keeps straight initially but may lean slightly forward upon impact to help maintain balance.
+
+    7. **Return to Start Position**:
+    - Time Interval: t6 to t7
+    - Legs: Straighten to return to the original standing position.
+    - Arms: Return to the relaxed position at the sides.
+    - Torso: Returns to erect posture.
+
+    Each of these atomic descriptions should be detailed with specific angles, velocities, and timings for a computer graphics engine to create a realistic and accurate depiction of a person squatting down and then jumping.
+    ```
+- User: `Which description above is not atomic enough?`
+- Assistant:
+    ```
+    The description in Step 4 — **Launching the Jump (Initial Jump Phase)** — is not quite atomic enough for precise input into a computer graphics engine. It covers multiple movements in a single time interval, which could be better split into more granular details, particularly focusing on the interaction of different body parts and their specific movements. Here’s how it can be refined:
+
+    **Step 4: Launching the Jump (Initial Jump Phase)** can be divided into two distinct sub-steps to make the action more atomic:
+
+    1. **Initial Leg Extension**:
+    - Time Interval: t3 to t3.5
+    - Legs: Rapid extension of the hips and knees begins, thrusting the body upward. 
+    - Arms: Begin pulling back to aid in upward momentum.
+    - Torso: Starts to straighten in preparation for leaving the ground.
+
+    2. **Full Extension and Arm Swing**:
+    - Time Interval: t3.5 to t4
+    - Legs: Complete the extension of knees and hips; toes flex to push off the ground as the body lifts off.
+    - Arms: Rapidly swing upwards, reaching above the head to maximize jump height.
+    - Torso: Fully aligns with legs to form a straight vertical line at the peak of the jump.
+
+    By detailing these sub-steps separately, we provide clearer instructions for each movement phase, allowing for more precise programming and visualization in a computer graphics context. This decomposition ensures that each body motion is captured distinctly, facilitating realistic animation where timing and coordination of movements are crucial.
+    ```
+- User: `Write down all the atomic descriptions again`
+- Assistant:
+    ```
+    Here are all the atomic descriptions rewritten and reorganized as requested, with the refinements applied to Step 4 for further detail:
+
+    1. **Starting Position**:
+    - Time Interval: t0 to t1
+    - Legs: Straight, feet shoulder-width apart.
+    - Arms: Relaxed by the sides.
+    - Torso: Erect.
+
+    2. **Squatting Down (Preparation Phase)**:
+    - Time Interval: t1 to t2
+    - Legs: Bend at the hips and knees to lower the body, heels on the ground.
+    - Arms: Extend forward parallel to the ground for balance.
+    - Torso: Maintains erect posture, leans slightly forward to maintain balance.
+
+    3. **Bottom of Squat**:
+    - Time Interval: t2 to t3
+    - Legs: Knees bent at approximately 90 degrees, thighs parallel to the ground.
+    - Arms: Fully extended forward, parallel with the ground.
+    - Torso: Erect, leaned forward for balance.
+
+    4. **Initial Leg Extension (Part of Launching the Jump)**:
+    - Time Interval: t3 to t3.5
+    - Legs: Begin rapid extension of knees and hips, starting to push body upward.
+    - Arms: Start pulling back to aid in upward momentum.
+    - Torso: Begins to straighten in preparation for liftoff.
+
+    5. **Full Extension and Arm Swing (Part of Launching the Jump)**:
+    - Time Interval: t3.5 to t4
+    - Legs: Complete the extension of knees and hips; toes flex to push off the ground.
+    - Arms: Rapidly swing upwards, reaching above the head.
+    - Torso: Aligns with legs, forming a straight line vertically.
+
+    6. **Mid-Air Phase**:
+    - Time Interval: t4 to t5
+    - Legs: Slightly bent at knees and hips.
+    - Arms: Continue motion, reaching above the head.
+    - Torso: Maintains straight alignment.
+
+    7. **Landing Phase**:
+    - Time Interval: t5 to t6
+    - Legs: Begin to bend at knees and hips to absorb impact.
+    - Arms: Swing downward to stabilize and balance.
+    - Torso: Initially straight, may lean forward upon impact.
+
+    8. **Return to Start Position**:
+    - Time Interval: t6 to t7
+    - Legs: Straighten to original standing position.
+    - Arms: Return to relaxed position at sides.
+    - Torso: Returns to erect posture.
+
+    These detailed atomic steps specify each significant movement and transition, ideal for programming realistic animations in a computer graphics engine. Each description is focused on specific body parts and the corresponding action, ensuring clarity and allowing precise control over the animation sequence.
+    ```
+- User: `Which description above is not atomic enough?`
+- Assistant:
+    ```
+    Upon reviewing the detailed steps, the description in **Step 6: Mid-Air Phase** could be considered not atomic enough compared to the others. This step generally describes a state of being ("mid-air") but does not delineate specific actions that different body parts should undertake during the several moments of being airborne. For maximal clarity and effectiveness in animation programming, it's useful to describe in more detail what each body part does during the ascent, peak, and beginning descent of the jump. Here's a more detailed breakdown:
+
+    **6. Mid-Air Phase (Ascent):**
+    - **Time Interval:** t4 to t4.5
+    - **Legs:** Maintain slight bend at knees and hips to stabilize the body.
+    - **Arms:** Reach maximum height above the head, then prepare to descend.
+    - **Torso:** Aligns upright to stabilize posture during ascent.
+
+    **7. Mid-Air Phase (Peak and Early Descent):**
+    - **Time Interval:** t4.5 to t5
+    - **Legs:** Start adjusting for landing by preparing to bend further at knees and hips.
+    - **Arms:** Begin to lower from the highest point to regain balance and assist in landing.
+    - **Torso:** Maintains upright posture, begins slight forward lean to prepare for landing impact.
+
+    These additions provide specific instructions for what happens during the jump, ensuring each phase of the motion is captured and can be effectively animated.
+    ```
+- User: `Write down all the atomic descriptions again`
+- Assistant:
+    ```
+    Here are all the atomic descriptions rewritten and reorganized, with additional refinements applied to the Mid-Air Phase to provide clarity:
+
+    1. **Starting Position**:
+    - **Time Interval:** t0 to t1
+    - **Legs:** Straight, feet shoulder-width apart.
+    - **Arms:** Relaxed by the sides.
+    - **Torso:** Erect.
+
+    2. **Squatting Down (Preparation Phase)**:
+    - **Time Interval:** t1 to t2
+    - **Legs:** Bend at the hips and knees to lower the body, heels on the ground.
+    - **Arms:** Extend forward parallel to the ground for balance.
+    - **Torso:** Maintains erect posture, leans slightly forward to maintain balance.
+
+    3. **Bottom of Squat**:
+    - **Time Interval:** t2 to t3
+    - **Legs:** Knees bent at approximately 90 degrees, thighs parallel to the ground.
+    - **Arms:** Fully extended forward, parallel with the ground.
+    - **Torso:** Erect, leaned forward for balance.
+
+    4. **Initial Leg Extension (Part of Launching the Jump)**:
+    - **Time Interval:** t3 to t3.5
+    - **Legs:** Begin rapid extension of knees and hips, starting to push body upward.
+    - **Arms:** Start pulling back to aid in upward momentum.
+    - **Torso:** Begins to straighten in preparation for liftoff.
+
+    5. **Full Extension and Arm Swing (Part of Launching the Jump)**:
+    - **Time Interval:** t3.5 to t4
+    - **Legs:** Complete the extension of knees and hips; toes flex to push off the ground.
+    - **Arms:** Rapidly swing upwards, reaching above the head.
+    - **Torso:** Aligns with legs, forming a straight line vertically.
+
+    6. **Mid-Air Phase (Ascent):**
+    - **Time Interval:** t4 to t4.5
+    - **Legs:** Maintain slight bend at knees and hips to stabilize the body.
+    - **Arms:** Reach maximum height above the head, then prepare to descend.
+    - **Torso:** Aligns upright to stabilize posture during ascent.
+
+    7. **Mid-Air Phase (Peak and Early Descent):**
+    - **Time Interval:** t4.5 to t5
+    - **Legs:** Start adjusting for landing by preparing to bend further at knees and hips.
+    - **Arms:** Begin to lower from the highest point to regain balance and assist in landing.
+    - **Torso:** Maintains upright posture, begins slight forward lean to prepare for landing impact.
+
+    8. **Landing Phase**:
+    - **Time Interval:** t5 to t6
+    - **Legs:** Begin to bend at knees and hips to absorb impact.
+    - **Arms:** Swing downward to stabilize and balance.
+    - **Torso:** Initially straight, may lean forward upon impact.
+
+    9. **Return to Start Position**:
+    - **Time Interval:** t6 to t7
+    - **Legs:** Straighten to original standing position.
+    - **Arms:** Return to relaxed position at sides.
+    - **Torso:** Returns to erect posture.
+
+    These atomic descriptions account for specific actions of each body part across the entire sequence of squatting down, jumping, and returning to the starting position. This detailed level of granularity is crucial for realistic and programmable animation within computer graphics engines.
+    ```
+- User: `Which description above is not atomic enough?`
+- Assistant:
+    ```
+    Upon further review, the descriptions provided all correspond well in terms of atomicity to the structured dance of motions involved in the action sequence. Each description focuses on specific body parts and their actions during concise time intervals. However, if any could be improved for even more preciseness, the **Landing Phase** stands out. This phase could potentially be split into two parts just like the mid-air phase to depict the initial contact and the follow-through of the landing.
+
+    Here’s how this could be further divided for increased atomicity:
+
+    **8. Initial Landing Contact:**
+    - **Time Interval:** t5 to t5.5
+    - **Legs:** Feet touch the ground with toes slightly ahead; begin bending knees to absorb impact.
+    - **Arms:** Are in the downward motion to help balance the sudden deceleration.
+    - **Torso:** Remains slightly forward leaning to distribute the impact.
+
+    **9. Full Landing Stabilization:**
+    - **Time Interval:** t5.5 to t6
+    - **Legs:** Fully bent knees to absorb the remaining impact force, hips lower towards the heels.
+    - **Arms:** Lowered and possibly move slightly backward to aid in final balancing.
+    - **Torso:** Adjusts to a more upright position to stabilize the body fully.
+
+    These additional specifics help clarify the landing process, showing the transition from impact to stabilization with distinct adjustments in body parts. Updating the overall sequence to include this added detail would ensure each portion of the motion is captured realistically for graphic animation programming.
+    ```
+- User: `Write down all the atomic descriptions again`
+- Assistant:
+    ```
+    To enhance precision for animation in a computer graphics engine, here are the atomic descriptions for the entire sequence, now including the refined split for the **Landing Phase**:
+
+    1. **Starting Position**:
+    - **Time Interval:** t0 to t1
+    - **Legs:** Straight, feet shoulder-width apart.
+    - **Arms:** Relaxed by the sides.
+    - **Torso:** Erect.
+
+    2. **Squatting Down (Preparation Phase)**:
+    - **Time Interval:** t1 to t2
+    - **Legs:** Bend at the hips and knees to lower the body, heels on the ground.
+    - **Arms:** Extend forward parallel to the ground for balance.
+    - **Torso:** Maintains erect posture, leans slightly forward to maintain balance.
+
+    3. **Bottom of Squat**:
+    - **Time Interval:** t2 to t3
+    - **Legs:** Knees bent at approximately 90 degrees, thighs parallel to the ground.
+    - **Arms:** Fully extended forward, parallel with the ground.
+    - **Torso:** Erect, leaned forward for balance.
+
+    4. **Initial Leg Extension (Part of Launching the Jump)**:
+    - **Time Interval:** t3 to t3.5
+    - **Legs:** Begin rapid extension of knees and hips, starting to push body upward.
+    - **Arms:** Start pulling back to aid in upward momentum.
+    - **Torso:** Begins to straighten in preparation for liftoff.
+
+    5. **Full Extension and Arm Swing (Part of Launching the Jump)**:
+    - **Time Interval:** t3.5 to t4
+    - **Legs:** Complete the extension of knees and hips; toes flex to push off the ground.
+    - **Arms:** Rapidly swing upwards, reaching above the head.
+    - **Torso:** Aligns with legs, forming a straight line vertically.
+
+    6. **Mid-Air Phase (Ascent)**:
+    - **Time Interval:** t4 to t4.5
+    - **Legs:** Maintain slight bend at knees and hips to stabilize the body.
+    - **Arms:** Reach maximum height above the head, then prepare to descend.
+    - **Torso:** Aligns upright to stabilize posture during ascent.
+
+    7. **Mid-Air Phase (Peak and Early Descent)**:
+    - **Time Interval:** t4.5 to t5
+    - **Legs:** Start adjusting for landing by preparing to bend further at knees and hips.
+    - **Arms:** Begin to lower from the highest point to regain balance and assist in landing.
+    - **Torso:** Maintains upright posture, begins slight forward lean to prepare for landing impact.
+
+    8. **Initial Landing Contact**:
+    - **Time Interval:** t5 to t5.5
+    - **Legs:** Feet touch the ground with toes slightly ahead; begin bending knees to absorb impact.
+    - **Arms:** Are in the downward motion to help balance the sudden deceleration.
+    - **Torso:** Remains slightly forward leaning to distribute the impact.
+
+    9. **Full Landing Stabilization**:
+    - **Time Interval:** t5.5 to t6
+    - **Legs:** Fully bent knees to absorb the remaining impact force, hips lower towards the heels.
+    - **Arms:** Lowered and possibly move slightly backward to aid in final balancing.
+    - **Torso:** Adjusts to a more upright position to stabilize the body fully.
+
+    10. **Return to Start Position**:
+        - **Time Interval:** t6 to t7
+        - **Legs:** Straighten to original standing position.
+        - **Arms:** Return to relaxed position at sides.
+        - **Torso:** Returns to erect posture.
+
+    These atomic descriptions, now broken down even further within the Landing Phase, offer exceptionally granular information for programming movements in a computer graphics engine, ensuring a highly accurate and realistic animation.
+    ```
+- User: `Which description above is not atomic enough?`
+- Assistant:
+    ```
+    Upon reviewing the detailed atomic descriptions once again, each step does appear to cover specific actions for body parts within concise and well-defined time intervals, suggesting sufficient granularity for animation purposes in a computer graphics engine.
+
+    Each step delineates actions and movements of legs, arms, and torso in tightly controlled time frames. However, if there is still room for refining atomicity or increasing granularity, one could argue that **Step 10: Return to Start Position** might be slightly less atomic compared to other steps. This description encapsulates the final positioning without explicitly detailing transitional movements for the body parts as they reset to the starting posture.
+
+    Here are more detailed descriptions to make step 10 appropriately atomic:
+
+    **10. Begin Return to Start Position:**
+    - **Time Interval:** t6 to t6.5
+    - **Legs:** Start straightening from the bent knee position.
+    - **Arms:** Begin moving from a potentially lower or outward position back to resting by the sides.
+    - **Torso:** Begins to shift from any forward-leaned or adjusted position back to a fully erect posture.
+
+    **11. Complete Return to Start Position:**
+    - **Time Interval:** t6.5 to t7
+    - **Legs:** Fully straightened, stabilizing in the upright position.
+    - **Arms:** Securely placed at the sides.
+    - **Torso:** Fully erect, returning to the initial starting posture.
+
+    Splitting the final return to start position into a beginning and completion phase ensures that each segment of this transition is explicitly noted, enhancing clarity and accuracy for the animation sequence—thereby matching the level of detail seen in the other phases.
+    ```
+- User: `Write down all the atomic descriptions again`
+- Assistant:
+    ```
+    Here are the fully revised atomic descriptions for the sequence of a person squatting down and jumping, now including a more detailed breakdown of the return to the starting position to ensure uniform granularity:
+
+    1. **Starting Position**:
+    - **Time Interval:** t0 to t1
+    - **Legs:** Straight, feet shoulder-width apart.
+    - **Arms:** Relaxed by the sides.
+    - **Torso:** Erect.
+
+    2. **Squatting Down (Preparation Phase)**:
+    - **Time Interval:** t1 to t2
+    - **Legs:** Bend at the hips and knees to lower the body, heels on the ground.
+    - **Arms:** Extend forward parallel to the ground for balance.
+    - **Torso:** Maintains erect posture, leans slightly forward to maintain balance.
+
+    3. **Bottom of Squat**:
+    - **Time Interval:** t2 to t3
+    - **Legs:** Knees bent at approximately 90 degrees, thighs parallel to the ground.
+    - **Arms:** Fully extended forward, parallel with the ground.
+    - **Torso:** Erect, leaned forward for balance.
+
+    4. **Initial Leg Extension (Part of Launching the Jump)**:
+    - **Time Interval:** t3 to t3.5
+    - **Legs:** Begin rapid extension of knees and hips, starting to push body upward.
+    - **Arms:** Start pulling back to aid in upward momentum.
+    - **Torso:** Begins to straighten in preparation for liftoff.
+
+    5. **Full Extension and Arm Swing (Part of Launching the Jump)**:
+    - **Time Interval:** t3.5 to t4
+    - **Legs:** Complete the extension of knees and hips; toes flex to push off the ground.
+    - **Arms:** Rapidly swing upwards, reaching above the head.
+    - **Torso:** Aligns with legs, forming a straight line vertically.
+
+    6. **Mid-Air Phase (Ascent)**:
+    - **Time Interval:** t4 to t4.5
+    - **Legs:** Maintain slight bend at knees and hips to stabilize the body.
+    - **Arms:** Reach maximum height above the head, then prepare to descend.
+    - **Torso:** Aligns upright to stabilize posture during ascent.
+
+    7. **Mid-Air Phase (Peak and Early Descent)**:
+    - **Time Interval:** t4.5 to t5
+    - **Legs:** Start adjusting for landing by preparing to bend further at knees and hips.
+    - **Arms:** Begin to lower from the highest point to regain balance and assist in landing.
+    - **Torso:** Maintains upright posture, begins slight forward lean to prepare for landing impact.
+
+    8. **Initial Landing Contact**:
+    - **Time Interval:** t5 to t5.5
+    - **Legs:** Feet touch the ground with toes slightly ahead; begin bending knees to absorb impact.
+    - **Arms:** Are in the downward motion to help balance the sudden deceleration.
+    - **Torso:** Remains slightly forward leaning to distribute the impact.
+
+    9. **Full Landing Stabilization**:
+    - **Time Interval:** t5.5 to t6
+    - **Legs:** Fully bent knees to absorb the remaining impact force, hips lower towards the heels.
+    - **Arms:** Lowered and possibly move slightly backward to aid in final balancing.
+    - **Torso:** Adjusts to a more upright position to stabilize the body fully.
+
+    10. **Begin Return to Start Position**:
+        - **Time Interval:** t6 to t6.5
+        - **Legs:** Start straightening from the bent knee position.
+        - **Arms:** Begin moving from a potentially lower or outward position back to resting by the sides.
+        - **Torso:** Begins to shift from any forward-leaned or adjusted position back to a fully erect posture.
+
+    11. **Complete Return to Start Position**:
+        - **Time Interval:** t6.5 to t7
+        - **Legs:** Fully straightened, stabilizing in the upright position.
+        - **Arms:** Securely placed at the sides.
+        - **Torso:** Fully erect, returning to the initial starting posture.
+
+    These atomic descriptions now evenly cover every component of the movement sequence with sufficient detail for granular control in a computer graphics engine, ensuring realistic and accurate animation.
+    ```
+- User: `Which description above is not atomic enough?`
+- Assistant:
+    ```
+    Upon careful review, the atomic descriptions provided for each phase of the action are precise, each detailing the movement of specific body parts within clear time intervals. Each description concentrates on the motion of the legs, arms, and torso during various, well-defined parts of the action sequence.
+
+    Given these details, the descriptions currently align well with the concept of an "atomic" action that can be used as programmatic input into a computer graphics engine. Each stage has been split appropriately to ensure granularity that is finely tuned for realistic animations. Hence, none of the descriptions outlined in the list inherently lacks atomicity; they are all sufficiently detailed for animation purposes.
+
+    To confirm, the information:
+    - Is focused on specific parts of the body.
+    - Addresses precise movements.
+    - Includes clear timing intervals.
+    - Separates each phase of motion uniquely and distinctly.
+
+    If further granularity or adjustments are desired, they would likely pertain more to tuning parameters such as exact angles and speeds rather than further breaking down the descriptions. However, based on standard requirements for creating realistic animations via programmatic input, the current set of descriptions should be deemed adequately atomic.
+    ```
+- User: `Refine the final atomic descriptions into a tabular representation. This representation should at least specify two dimensions - the time scale and body part scale`
+- Assistant:
+    ```
+    To efficiently document and manage the detailed atomic descriptions for the motion of squatting down and jumping, a tabular representation can be very useful. This table will categorize the movements by body part and time interval, providing a clear overview that could easily be translated into animation commands in a computer graphics engine. Below is the tabular representation dividing the descriptions along two dimensions: the time scale and the body part scale.
+    ```
+    | Time Interval | Body Part | Description                                                  |
+    |---------------|-----------|--------------------------------------------------------------|
+    | t0 to t1      | Legs      | Straight, feet shoulder-width apart.                         |
+    |               | Arms      | Relaxed by the sides.                                        |
+    |               | Torso     | Erect.                                                       |
+    | t1 to t2      | Legs      | Bend at the hips and knees, heels on the ground.             |
+    |               | Arms      | Extend forward parallel to the ground for balance.           |
+    |               | Torso     | Maintains erect posture, leans slightly forward to maintain balance. |
+    | t2 to t3      | Legs      | Knees bent 90 degrees, thighs parallel to the ground.        |
+    |               | Arms      | Fully extended forward, parallel with the ground.            |
+    |               | Torso     | Erect, leaned forward for balance.                           |
+    | t3 to t3.5    | Legs      | Begin rapid extension of knees and hips, pushing body upward.|
+    |               | Arms      | Start pulling back to aid in upward momentum.                |
+    |               | Torso     | Begins to straighten in preparation for liftoff.             |
+    | t3.5 to t4    | Legs      | Complete extension; toes flex to push off the ground.        |
+    |               | Arms      | Rapidly swing upwards, reaching above the head.              |
+    |               | Torso     | Aligns with legs, forming a straight line vertically.        |
+    | t4 to t4.5    | Legs      | Maintain slight bend at knees and hips to stabilize the body.|
+    |               | Arms      | Reach maximum height above the head, then prepare to descend.|
+    |               | Torso     | Aligns upright to stabilize posture during ascent.           |
+    | t4.5 to t5    | Legs      | Start adjusting for landing, preparing to bend further.      |
+    |               | Arms      | Begin to lower from the highest point to assist in landing.  |
+    |               | Torso     | Maintains upright posture, begins slight forward lean.       |
+    | t5 to t5.5    | Legs      | Feet touch the ground, begin bending knees to absorb impact. |
+    |               | Arms      | In the downward motion for balance during deceleration.      |
+    |               | Torso     | Slightly forward leaning to distribute the impact.           |
+    | t5.5 to t6    | Legs      | Fully bend knees absorbing force, hips lower towards heels.  |
+    |               | Arms      | Lowered, move slightly backward to aid in balancing.         |
+    |               | Torso     | Adjusts to a more upright position to stabilize the body fully. |
+    | t6 to t6.5    | Legs      | Start straightening from the bent knee position.             |
+    |               | Arms      | Begin moving back to resting by the sides.                   |
+    |               | Torso     | Shifts from any forward-leaned position back to fully erect. |
+    | t6.5 to t7    | Legs      | Fully straightened, stabilizing in the upright position.     |
+    |               | Arms      | Securely placed at the sides.                                |
+    |               | Torso     | Fully erect, returning to the initial starting posture.      |
+    ```
+    This tabular format offers a streamlined and structured view, simplifying the understanding of the sequence and easing the tasks of programming and animation by dividing the motion into comprehensible segments focused on specific time intervals and body parts.
+    ```
+
+- **Analysis**
+    - When I ask the model to further recursively decompose the descriptions, I can get more fine-grained atomic generation.
+    - Refinement into a table helps clearer representation.
+
+##### Complex motion 1 (modified 1)
+
+- https://platform.openai.com/playground/p/FtWvIkJKM61BZMqfvisbKcWU?model=gpt-4-turbo-2024-04-09&mode=chat
+- **Comments**
+    - This example shows that if we keep asking the LLM, the LLM will gradually decompose the motion down to the level of joint and body part movements with precise angles and durations. Then the LLM will specify muscle tension, breath, nervous system, etc. We need to specify the expected granularity (body parts, joints, angles, durations, etc.) and which part more worthwhile to recursively decompose.
+    - We might need to specify some simple pseudo-codes with args to denote some commonly used or generated contents, e.g., `START`, `RECURSION(arg)`, `FINISH`, etc. The current pure natural language based generation is too redundant.
