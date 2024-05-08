@@ -1341,3 +1341,98 @@
 - **Comments**
     - This example shows that if we keep asking the LLM, the LLM will gradually decompose the motion down to the level of joint and body part movements with precise angles and durations. Then the LLM will specify muscle tension, breath, nervous system, etc. We need to specify the expected granularity (body parts, joints, angles, durations, etc.) and which part more worthwhile to recursively decompose.
     - We might need to specify some simple pseudo-codes with args to denote some commonly used or generated contents, e.g., `START`, `RECURSION(arg)`, `FINISH`, etc. The current pure natural language based generation is too redundant.
+
+
+#### Task and pseudo-code motion planning
+##### Squat and jump
+
+- System:
+    ```
+    You will be given a high-level motion instruction. You will decompose this instruction down into a structured combination of atomic descriptions that can potentially serve as programmatic inputs into a computer graphics engine without substantive modification.
+
+    There are two steps --- task planning and motion planning. In task planning, decompose the original motion instruction into several key procedures in natural language. In motion planning, decompose each key procedure into a structured series of atomic descriptions.
+
+    An atomic description specifies the movement of a relevant body part in a certain time interval. For the movement, use **degree** as the movement unit and specify **the reference position or body part**. For the time interval, use **second** as the time unit. The format is {PERIOD}: {BODY_PART} ({REFERENCE_BODY_PART}) {START_DEGREE} -> {END_DEGREE}
+
+    ###
+    {BODY_PART}: ['head', 'torso', 'left upper arm', 'left forearm', 'left thigh', 'left calf', 'right upper arm', 'right forearm', 'right thigh', 'right calf', 'left foot', 'right foot']
+
+    ###
+    Constraints:
+    # {BODY_PART} ({REFERENCE_BODY_PART}) [{DEGREE_INITIAL}, {DEGREE_LIMIT}]
+    torso (vertical) [0, 90] # bend forward
+    torso (vertical) [0, -90] # bend backward
+    head (torso) [0, 90] # bend forward
+    head (torso) [0, -90] # bend backward
+    left thigh (torso) [0, 180] # from straight to totally bending
+    right thigh (torso) [0, 180] # from straight to totally bending
+    left calf (left thigh) [0, 180] # from straight to totally bending
+    right calf (right thigh) [0, 180] # from straight to totally bending
+    left foot (left calf) [0, 45] # from orthogonal to bending the left foot toward the right calf
+    left foot (left calf) [0, -90] # from orthogonal to bending the left foot outward
+    right foot (right calf) [0, 45] # from orthogonal to bending the right foot toward the right calf
+    right foot (right calf) [0, -90] # from orthogonal to bending the left foot outward
+    left forearm (left upper arm) [0, 180] # from straight to totally bending
+    right forearm (right upper arm) [0, 180] # from straight to totally bending
+    left upper arm (torso) [0, 180] # from sticking to the torso to raising above
+    right upper arm (torso) [0, 180] # from sticking to the torso to raising above
+    ```
+- User: `A person squats down then jumps.`
+- Assistant:
+    ```
+    ### Task Planning
+    **Task 1: Squat Down**
+    1. Bend torso forward
+    2. Bend both knees
+    3. Lower hips
+    4. Adjust arms for balance
+
+    **Task 2: Jump**
+    1. Extend legs
+    2. Push off the ground with both feet
+    3. Extend arms for momentum
+    4. Land back on both feet and stabilize
+
+    ### Motion Planning
+
+    **Task 1: Squat Down**
+    - **1. Bend torso forward**
+        - 0-1s: torso (vertical) 0 -> 30
+    - **2. Bend both knees**
+        - 0-1s: right thigh (torso) 0 -> 90
+        - 0-1s: left thigh (torso) 0 -> 90
+        - 0-1s: right calf (right thigh) 0 -> 90
+        - 0-1s: left calf (left thigh) 0 -> 90
+    - **3. Lower hips**
+        - Concurrent with knee bending
+    - **4. Adjust arms for balance**
+        - 0-1s: right upper arm (torso) 0 -> 30
+        - 0-1s: left upper arm (torso) 0 -> 30
+        - 0-1s: right forearm (right upper arm) 0 -> 45
+        - 0-1s: left forearm (left upper arm) 0 -> 45
+
+    **Task 2: Jump**
+    - **1. Extend legs**
+        - 1-2s: right thigh (torso) 90 -> 0
+        - 1-2s: left thigh (torso) 90 -> 0
+        - 1-2s: right calf (right thigh) 90 -> 0
+        - 1-2s: left calf (left thigh) 90 -> 0
+    - **2. Push off the ground with both feet**
+        - 1-2s: right foot (right calf) 0 -> -45
+        - 1-2s: left foot (left calf) 0 -> -45
+    - **3. Extend arms for momentum**
+        - 1-2s: right forearm (right upper arm) 45 -> 0
+        - 1-2s: left forearm (left upper arm) 45 -> 0
+        - 1-2s: right upper arm (torso) 30 -> 90
+        - 1-2s: left upper arm (torso) 30 -> 90
+    - **4. Land back on both feet and stabilize**
+        - 2-3s: right foot (right calf) -45 -> 0
+        - 2-3s: left foot (left calf) -45 -> 0
+        - 2-3s: torso (vertical) 30 -> 0
+        - 2-3s: right upper arm (torso) 90 -> 0
+        - 2-3s: left upper arm (torso) 90 -> 0
+    ```
+- Comments
+    - First task planning then motion planning helps overcome the problem of non-physical motions (e.g., squating without extending arms)
+    - Specifying body parts and constraints greatly increases the well-formedness of generate answers
+    - Adding comments after constraints help the model more deeply understand the directions of degrees
