@@ -1436,3 +1436,5 @@
     - First task planning then motion planning helps overcome the problem of non-physical motions (e.g., squating without extending arms)
     - Specifying body parts and constraints greatly increases the well-formedness of generate answers
     - Adding comments after constraints help the model more deeply understand the directions of degrees
+    - The timeline is not precise.
+    - For complex motions, recursive task planning might be necessary.
