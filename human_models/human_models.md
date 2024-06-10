@@ -33,8 +33,8 @@ SMPL_KEYPOINTS = [
 
 **NOTE 1:** The collection of skeleton-based human models (https://github.com/open-mmlab/mmhuman3d/tree/main/mmhuman3d/core/conventions/keypoints_mapping)<br>
 **NOTE 2:** The SMPL paper (https://files.is.tue.mpg.de/black/papers/SMPL2015.pdf)<br>
-**NOTE 3:** `SMPL_blender_addon` (Video: https://www.youtube.com/watch?v=DY2k29Jef94; Code: https://github.com/Meshcapade/SMPL_blender_addon/tree/main)
+**NOTE 3:** `SMPL_blender_addon` (Video: https://www.youtube.com/watch?v=DY2k29Jef94; Code: https://github.com/Meshcapade/SMPL_blender_addon/tree/main)<br>
 
 - Comments
     - Might need to merge some joints, or assign the same motion to several joints?
-    - Can we teach the LLM how to generate pseudo codes to control SMPL models? Or rather, how to use `SMPL_blender_addon`? Or rather, the skeleton codes of SMPL?
+    - Can we teach the LLM how to generate pseudo codes to control SMPL models? Or rather, how to use `SMPL_blender_addon`? Or rather, the skeleton codes of SMPL? $\rightarrow$ Related work: [Real-time Animation Generation and Control on Rigged Models via Large Language Models](https://github.com/Whalefishin/LLM_animation)
