@@ -41,7 +41,7 @@ SMPL_KEYPOINTS = [
     - How to animate a simple human model (mixamo / SMPL) in Unity with the LLM? $\rightarrow$ Related work: [Real-time Animation Generation and Control on Rigged Models via Large Language Models](https://github.com/Whalefishin/LLM_animation)
         - Method 1 (generative): Generate pure FBX animation files with the LLM
             - Pros: Expressive in motions;
-            - Cons: Too long to generate; $\rightarrow$ Possible solution: Specify a compact output format to be converted into an FBX file. / Develop a recursive generation method
+            - Cons: Too long to generate; $\rightarrow$ Possible solutions: Specify a compact output format to be converted into an FBX file. / Only generate key frames and interpolate. / Develop a recursive generation method.
         - Method 2 (analytic): Generate animation scripts which utilize mathematical functions to describe the animation curves with the LLM
             - Pros
                 - Meaningful in terms of the combination of spatial semantics and the codes;
@@ -49,11 +49,12 @@ SMPL_KEYPOINTS = [
             - Cons
                 - Lack of motion expressivity;
                 - The LLM seems not to be very good at the combination of spatial semantics and the codes (**INITIAL** attempts failed); $\rightarrow$ Might need to explore more.
-        - Method 3 (pipeline): Utilize existing text2motion datasets/models to generate assets + Utilize the LLM and the graphics engine to select, modify and stitch the existing motions
+        - Method 3 (pipeline): Utilize existing text2motion datasets/models to generate motions for simple texts as assets + Utilize existing captioning models to generate fine-grained descriptions for the existing motions + Utilize the LLM and the graphics engine to select, modify and stitch the existing motions
             - Pros
-                - The graphics engine provides a mature platform with semantically meaningful codes for the motion system;
-                - Utilize specialized text2motion models to generate assets, instead of leaving this heavy task to the LLM;
-                - Utilize the LLM to plan the target motion, and adapt the primitive assets with the graphics engine;
+                - The graphics engine provides a sophisticated platform with semantically meaningful codes for the motion system;
+                - Utilize specialized text2motion models to generate motions for simple texts as assets, instead of leaving this heavy task to the LLM;
+				- Utilize existing captioning models to generate fine-grained descriptions for the existing motions, to prepare for selection, modification and stitching;
+                - Utilize the LLM to plan the target motion, and adapt the primitive motions to the graphics engine;
             - Cons: Complicated; $\rightarrow$ Ready to try this!
 
 - Information regarding the body parts extracted from the character FBX file
