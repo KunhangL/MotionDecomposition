@@ -39,17 +39,17 @@ SMPL_KEYPOINTS = [
 - Comments
     - Might need to merge some joints, or assign the same motion to several joints?
     - How to animate a simple human model (mixamo / SMPL) in Unity with the LLM? $\rightarrow$ Related work: [Real-time Animation Generation and Control on Rigged Models via Large Language Models](https://github.com/Whalefishin/LLM_animation)
-        - Method 1 (generative): Generate pure FBX animation files with the LLM
+        - Method 1 (data-driven): Generate pure FBX animation files with the LLM.
             - Pros: Expressive in motions;
             - Cons: Too long to generate; $\rightarrow$ Possible solutions: Specify a compact output format to be converted into an FBX file. / Only generate key frames and interpolate. / Develop a recursive generation method.
-        - Method 2 (analytic): Generate animation scripts which utilize mathematical functions to describe the animation curves with the LLM
+        - Method 2 (script-driven): Generate animation scripts which utilize mathematical functions to describe the animation curves with the LLM
             - Pros
                 - Meaningful in terms of the combination of spatial semantics and the codes;
                 - Relatively straightforward;
             - Cons
-                - Lack of motion expressivity;
-                - The LLM seems not to be very good at the combination of spatial semantics and the codes (**INITIAL** attempts failed); $\rightarrow$ Might need to explore more.
-        - Method 3 (pipeline): Utilize existing text2motion datasets/models to generate motions for simple texts as assets + Utilize existing captioning models to generate fine-grained descriptions for the existing motions + Utilize the LLM and the graphics engine to select, modify and stitch the existing motions
+                - Lack of motion expressivity compared with the data-driven method;
+                - The LLM seems not to be very good at the combination of spatial semantics and the codes (**INITIAL** attempts failed); $\rightarrow$ Might need to explore more, e.g., putting more necessary spatial information into the prompt. / We ask the LLM to generate scripts to drive the motions, but it's very hard to immediately generate a good motion script. So we use a video2text/image2text model (even GPT4o itself) to evaluate the generated motion, and then automatically modify the script correspondingly.
+        - Method 3 (pipeline): Utilize existing text2motion datasets/models to generate motions for simple texts as assets + Utilize existing video2text/image2text captioning models to generate fine-grained descriptions for the existing motions + Utilize the LLM and the graphics engine to select, modify and stitch the existing motions
             - Pros
                 - The graphics engine provides a sophisticated platform with semantically meaningful codes for the motion system;
                 - Utilize specialized text2motion models to generate motions for simple texts as assets, instead of leaving this heavy task to the LLM;
