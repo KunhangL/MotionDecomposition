@@ -1,0 +1,142 @@
+{
+    "m_avg_root": {
+        "joint_name": "m_avg_root",
+        "position": [0, 0, 0],
+        "children": {
+            "m_avg_Pelvis": {
+                "joint_name": "m_avg_Pelvis",
+                "position": [0.00217367915589215, 0.972723857779389, 0.0285837934769579],
+                "children": {
+                    "m_avg_L_Hip": {
+                        "joint_name": "m_avg_L_Hip",
+                        "position": [-0.0585813504507656, -0.0822800412730611, -0.0176640839745186],
+                        "children": {
+                            "m_avg_L_Knee": {
+                                "joint_name": "m_avg_L_Knee",
+                                "position": [-0.0434514314503899, -0.386469457538986, 0.00803700217630674],
+                                "children": {
+                                    "m_avg_L_Ankle": {
+                                        "joint_name": "m_avg_L_Ankle",
+                                        "position": [0.01479033494873, -0.426874391452085, -0.0374279940964569],
+                                        "children": {
+                                            "m_avg_L_Foot": {
+                                                "joint_name": "m_avg_L_Foot",
+                                                "position": [-0.0410543674633154, -0.0602859492311727, 0.12204242350686]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "m_avg_R_Hip": {
+                        "joint_name": "m_avg_R_Hip",
+                        "position": [0.0603097291884147, -0.0905132843011647, -0.01354252931849],
+                        "children": {
+                            "m_avg_R_Knee": {
+                                "joint_name": "m_avg_R_Knee",
+                                "position": [0.0432566254253949, -0.383687877466446, -0.00484304494182445],
+                                "children": {
+                                    "m_avg_R_Ankle": {
+                                        "joint_name": "m_avg_R_Ankle",
+                                        "position": [-0.019055544286818, -0.420045587890346, -0.0345616702037777],
+                                        "children": {
+                                            "m_avg_R_Foot": {
+                                                "joint_name": "m_avg_R_Foot",
+                                                "position": [0.0348398706827247, -0.062105561171744, 0.130323289537847]
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "m_avg_Spine1": {
+                        "joint_name": "m_avg_Spine1",
+                        "position": [-0.00443944898221867, 0.124403551233992, -0.0383852227732937],
+                        "children": {
+                            "m_avg_Spine2": {
+                                "joint_name": "m_avg_Spine2",
+                                "position": [-0.0044884401766645, 0.137956399353686, 0.0268203279187967],
+                                "children": {
+                                    "m_avg_Spine3": {
+                                        "joint_name": "m_avg_Spine3",
+                                        "position": [0.00226458745836407, 0.0560324043117619, 0.00285504453980784],
+                                        "children": {
+                                            "m_avg_Neck": {
+                                                "joint_name": "m_avg_Neck",
+                                                "position": [0.0133901850163491, 0.211635514692671, -0.0334675763976523],
+                                                "children": {
+                                                    "m_avg_Head": {
+                                                        "joint_name": "m_avg_Head",
+                                                        "position": [-0.0101132115910344, 0.088937353899629, 0.0504098606300206]
+                                                    }
+                                                }
+                                            },
+                                            "m_avg_L_Collar": {
+                                                "joint_name": "m_avg_L_Collar",
+                                                "position": [-0.0717024751888973, 0.113999713923281, -0.0188981710845057],
+                                                "children": {
+                                                    "m_avg_L_Shoulder": {
+                                                        "joint_name": "m_avg_L_Shoulder",
+                                                        "position": [-0.122921382186775, 0.045205076329708, -0.019045999826937],
+                                                        "children": {
+                                                            "m_avg_L_Elbow": {
+                                                                "joint_name": "m_avg_L_Elbow",
+                                                                "position": [-0.255331898315701, -0.0156490327473171, -0.0229464854803309],
+                                                                "children": {
+                                                                    "m_avg_L_Wrist": {
+                                                                        "joint_name": "m_avg_L_Wrist",
+                                                                        "position": [-0.265709255263499, 0.0126981037070203, -0.00737473431115989],
+                                                                        "children": {
+                                                                            "m_avg_L_Hand": {
+                                                                                "joint_name": "m_avg_L_Hand",
+                                                                                "position": [-0.0866905441238188, -0.0106360603299893, -0.0155942904792877]
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "m_avg_R_Collar": {
+                                                "joint_name": "m_avg_R_Collar",
+                                                "position": [0.0829536517743771, 0.112472303849185, -0.0237073845553838],
+                                                "children": {
+                                                    "m_avg_R_Shoulder": {
+                                                        "joint_name": "m_avg_R_Shoulder",
+                                                        "position": [0.113228312318425, 0.0468532786471522, -0.00847206923501845],
+                                                        "children": {
+                                                            "m_avg_R_Elbow": {
+                                                                "joint_name": "m_avg_R_Elbow",
+                                                                "position": [0.260127500631845, -0.0143692952953938, -0.0312687296438665],
+                                                                "children": {
+                                                                    "m_avg_R_Wrist": {
+                                                                        "joint_name": "m_avg_R_Wrist",
+                                                                        "position": [0.269108382383609, 0.00679372784357952, -0.00602676583284452],
+                                                                        "children": {
+                                                                            "m_avg_R_Hand": {
+                                                                                "joint_name": "m_avg_R_Hand",
+                                                                                "position": [0.0887537661914463, -0.00865157243230385, -0.0101070787784667]
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
