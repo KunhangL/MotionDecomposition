@@ -80,82 +80,84 @@ SMPL_KEYPOINTS = [
 	**Hierarchical Rotation Specifications from the Initial T-pose**
 	1. Root (m_avg_root):
 	- Typically, the root joint handles global positioning and rotation of the entire model.
+
 	2. Pelvis (m_avg_Pelvis):
-		- Local X Rotation: (+) Tilts the pelvis forward / (-) Tilts the pelvis backward
-		- Local Y Rotation: (-) Rotates the pelvis left / (+) Rotates the pelvis right
-		- Local Z Rotation: (+) Tilts the pelvis to the left / (-) Tilts the pelvis to the right
+		- Local X Rotation (pitch): Tilts the pelvis forward/backward.
+		- Local Y Rotation (yaw): Rotates the pelvis left/right.
+		- Local Z Rotation (roll): Tilts the pelvis side to side.
 		// Example: Slight tilt forward for pelvis
 		// m_avg_Pelvis.localRotation = Quaternion.Euler(10, 0, 0);
+
 	3. Left Hip (m_avg_L_Hip):
-		- Local X Rotation: (+) Moves the leg backward / (-) Moves the leg forward
-		- Local Y Rotation: (+) Swivels the leg inward / (-) Swivels the leg outward
-		- Local Z Rotation: (+) Twists the leg counterclockwise / (-) Twists the leg clockwise
+		- Local X Rotation (pitch): Moves the hip up/down, affecting leg lift.
+		- Local Y Rotation (yaw): Swivels the leg inward/outward.
+		- Local Z Rotation (roll): Twists the leg clockwise/counterclockwise.
 		// Example: Raise the left leg by 30 degrees
 		// m_avg_L_Hip.localRotation = Quaternion.Euler(-30, 0, 0);
 	4. Left Knee (m_avg_L_Knee):
-		- Local X Rotation: Bends the knee forward/backward.
-		- Local Y Rotation: Twists the knee inward/outward.
-		- Local Z Rotation: Rarely used.
+		- Local X Rotation (pitch): Bends the knee forward/backward.
+		- Local Y Rotation (yaw): Twists the knee inward/outward.
+		- Local Z Rotation (roll): Rarely used.
 		// Example: Bend the left knee 45 degrees
-		m_avg_L_Knee.localRotation = Quaternion.Euler(45, 0, 0);
+		// m_avg_L_Knee.localRotation = Quaternion.Euler(45, 0, 0);
 	5. Left Ankle (m_avg_L_Ankle):
-		- Local X Rotation: Points the foot up/down.
-		- Local Y Rotation: Twists the foot inward/outward.
-		- Local Z Rotation: Tilts the foot side to side.
+		- Local X Rotation (pitch): Points the foot up/down.
+		- Local Y Rotation (yaw): Twists the foot inward/outward.
+		- Local Z Rotation (roll): Tilts the foot side to side.
 		// Example: Point the left foot down 30 degrees
-		m_avg_L_Ankle.localRotation = Quaternion.Euler(-30, 0, 0);
+		// m_avg_L_Ankle.localRotation = Quaternion.Euler(-30, 0, 0);
 	6. Left Foot (m_avg_L_Foot):
 		- Local rotations for minor adjustments or toe movements.
 		// No specific example; depends on required animation.
 	7. Right Hip (m_avg_R_Hip):
 		- Similar to Left Hip but for the right leg.
 		// Example: Raise the right leg by 30 degrees
-		m_avg_R_Hip.localRotation = Quaternion.Euler(-30, 0, 0);
+		// m_avg_R_Hip.localRotation = Quaternion.Euler(-30, 0, 0);
 	8. Right Knee (m_avg_R_Knee):
 		- Similar to Left Knee.
 		// Example: Bend the right knee 45 degrees
-		m_avg_R_Knee.localRotation = Quaternion.Euler(45, 0, 0);
+		// m_avg_R_Knee.localRotation = Quaternion.Euler(45, 0, 0);
 	9. Right Ankle (m_avg_R_Ankle):
 		- Similar to Left Ankle.
 		// Example: Point the right foot down 30 degrees
-		m_avg_R_Ankle.localRotation = Quaternion.Euler(-30, 0, 0);
+		//m_avg_R_Ankle.localRotation = Quaternion.Euler(-30, 0, 0);
 	10. Right Foot (m_avg_R_Foot):
 		- Local rotations for minor adjustments or toe movements.
 		// No specific example; depends on required animation.
 	11. Spine1, Spine2, Spine3:
-		- Local X Rotation: Bends the spine forward/backward.
-		- Local Y Rotation: Twists the torso left/right.
-		- Local Z Rotation: Tilts the torso sideways.
+		- Local X Rotation (pitch): Bends the spine forward/backward.
+		- Local Y Rotation (yaw): Twists the torso left/right.
+		- Local Z Rotation (roll): Tilts the torso sideways.
 		// Example: Slight forward bend
-		m_avg_Spine1.localRotation = Quaternion.Euler(10, 0, 0);
-		m_avg_Spine2.localRotation = Quaternion.Euler(5, 0, 0);
-		m_avg_Spine3.localRotation = Quaternion.Euler(2, 0, 0);
+		// m_avg_Spine1.localRotation = Quaternion.Euler(10, 0, 0);
+		// m_avg_Spine2.localRotation = Quaternion.Euler(5, 0, 0);
+		// m_avg_Spine3.localRotation = Quaternion.Euler(2, 0, 0);
 	12. Neck (m_avg_Neck):
-		- Local X Rotation: Tilts the head up/down.
-		- Local Y Rotation: Turns the head left/right.
-		- Local Z Rotation: Tilts the head side to side.
+		- Local X Rotation (pitch): Tilts the head up/down.
+		- Local Y Rotation (yaw): Turns the head left/right.
+		- Local Z Rotation (roll): Tilts the head side to side.
 		// Example: Tilt the head backward
-		m_avg_Neck.localRotation = Quaternion.Euler(-20, 0, 0);
+		// m_avg_Neck.localRotation = Quaternion.Euler(-20, 0, 0);
 	13. Head (m_avg_Head):
 		- Fine adjustments to head rotation.
 		// Example: Look slightly to the left
-		m_avg_Head.localRotation = Quaternion.Euler(0, -10, 0);
+		//m_avg_Head.localRotation = Quaternion.Euler(0, -10, 0);
 	14. Left Collar (m_avg_L_Collar):
 		- Local rotations to adjust shoulder orientation.
 	15. Left Shoulder (m_avg_L_Shoulder):
-		- Local X Rotation: Raises/lowers the arm.
-		- Local Y Rotation: Moves the arm forward/backward.
-		- Local Z Rotation: Twists the arm.
+		- Local X Rotation (pitch): Raises/lowers the arm.
+		- Local Y Rotation (yaw): Moves the arm forward/backward.
+		- Local Z Rotation (roll): Twists the arm.
 		// Example: Raise the left arm by 45 degrees
-		m_avg_L_Shoulder.localRotation = Quaternion.Euler(0, 0, 45);
+		// m_avg_L_Shoulder.localRotation = Quaternion.Euler(0, 0, 45);
 	16. Left Elbow (m_avg_L_Elbow):
 		- Previously specified.
-	17. Left Wrist (m_avg_L_Wrist):
-		- Local X Rotation: Tilts the hand up/down.
-		- Local Y Rotation: Twist the wrist.
-		- Local Z Rotation: Tilts the hand side to side.
+	17. **Left Wrist (m_avg_L_Wrist)**:
+		- Local X Rotation (pitch): Tilts the hand up/down.
+		- Local Y Rotation (yaw): Twist the wrist.
+		- Local Z Rotation (roll): Tilts the hand side to side.
 		// Example: Tilt the left hand upward
-		m_avg_L_Wrist.localRotation = Quaternion.Euler(30, 0, 0);
+		// m_avg_L_Wrist.localRotation = Quaternion.Euler(30, 0, 0);
 	18. Left Hand (m_avg_L_Hand):
 		- Fine adjustments for hand and finger movements.
 		// Example: Slight finger curl (if detailed finger joints are present)
@@ -165,15 +167,15 @@ SMPL_KEYPOINTS = [
 	20. Right Shoulder (m_avg_R_Shoulder):
 		- Similar to Left Shoulder.
 		// Example: Lower the right arm by 45 degrees
-		m_avg_R_Shoulder.localRotation = Quaternion.Euler(0, 0, -45);
+		// m_avg_R_Shoulder.localRotation = Quaternion.Euler(0, 0, -45);
 	21. Right Elbow (m_avg_R_Elbow):
 		- Similar to Left Elbow.
 		// Example: Bend the right elbow inward
-		m_avg_R_Elbow.localRotation = Quaternion.Euler(0, 0, -45);
+		// m_avg_R_Elbow.localRotation = Quaternion.Euler(0, 0, -45);
 	22. Right Wrist (m_avg_R_Wrist):
 		- Similar to Left Wrist.
 		// Example: Tilt the right hand downward
-		m_avg_R_Wrist.localRotation = Quaternion.Euler(-30, 0, 0);
+		// m_avg_R_Wrist.localRotation = Quaternion.Euler(-30, 0, 0);
 	23. Right Hand (m_avg_R_Hand):
 		- Fine adjustments for hand and finger movements.
 		// Example: Fine finger movements (if detailed finger joints are present)
