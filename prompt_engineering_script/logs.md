@@ -291,13 +291,16 @@ public class SquatWithArmForward : MonoBehaviour
    - The animation progresses over a specified duration, ensuring a reasonable movement speed.
 ```
 
-<video src="walk_1.mp4" controls="controls" width="500" height="300"></video>
+https://github.com/KunhangL/MotionDecomposition/assets/146715017/7b42ab86-4205-4a91-9dee-e2593b2f9012
 
 2. "From the original T-pose, a person jumps and then lands."
-<video src="jump_1.mp4" controls="controls" width="500" height="300"></video>
+
+https://github.com/KunhangL/MotionDecomposition/assets/146715017/83fa1606-78e3-4b48-b586-e775baf046f3
 
 3. "From the original T-pose, a person squats while moving the arms forward."
-<video src="squat_arms_1.mp4" controls="controls" width="500" height="300"></video>
+
+https://github.com/KunhangL/MotionDecomposition/assets/146715017/168b0485-e1c2-449c-90c4-4d49dde9cce1
+
 
 
 ### Version 2: Human Model Hierarchy JSON + Rotation Specifications + Ground Specifications
@@ -432,10 +435,13 @@ Based on the hierarchy of this human model, generate a C# animation script for t
 ```
 - Cases
 1. "From the original T-pose, a person continually walks."
-<video src="walk_2.mp4" controls="controls" width="500" height="300"></video>
+
+https://github.com/KunhangL/MotionDecomposition/assets/146715017/58339823-f286-4bc6-8c84-3309186e2b78
 
 2. "From the original T-pose, a person jumps and then lands."
-<video src="jump_2.mp4" controls="controls" width="500" height="300"></video>
+
+https://github.com/KunhangL/MotionDecomposition/assets/146715017/930934a4-2d82-42b5-aad2-30f25be11390
 
 3. "From the original T-pose, a person squats while moving the arms forward."
-<video src="squat_arms_2.mp4" controls="controls" width="500" height="300"></video>
+
+https://github.com/KunhangL/MotionDecomposition/assets/146715017/6a4ad3a8-7aa7-46e2-b5ce-8a97be9b6870
