@@ -291,13 +291,13 @@ public class SquatWithArmForward : MonoBehaviour
    - The animation progresses over a specified duration, ensuring a reasonable movement speed.
 ```
 
-<video src="squat_arms_1.mov" controls="controls" width="500" height="300"></video>
+<video src="walk_1.mp4" controls="controls" width="500" height="300"></video>
 
 2. "From the original T-pose, a person jumps and then lands."
-<video src="jump_1.mov" controls="controls" width="500" height="300"></video>
+<video src="jump_1.mp4" controls="controls" width="500" height="300"></video>
 
 3. "From the original T-pose, a person squats while moving the arms forward."
-<video src="walk_1.mov" controls="controls" width="500" height="300"></video>
+<video src="squat_arms_1.mp4" controls="controls" width="500" height="300"></video>
 
 
 ### Version 2: Human Model Hierarchy JSON + Rotation Specifications + Ground Specifications
@@ -432,10 +432,10 @@ Based on the hierarchy of this human model, generate a C# animation script for t
 ```
 - Cases
 1. "From the original T-pose, a person continually walks."
-<video src="squat_arms_2.mov" controls="controls" width="500" height="300"></video>
+<video src="walk_2.mp4" controls="controls" width="500" height="300"></video>
 
 2. "From the original T-pose, a person jumps and then lands."
-<video src="walk_2.mov" controls="controls" width="500" height="300"></video>
+<video src="jump_2.mp4" controls="controls" width="500" height="300"></video>
 
 3. "From the original T-pose, a person squats while moving the arms forward."
-<video src="jump_2.mov" controls="controls" width="500" height="300"></video>
+<video src="squat_arms_2.mp4" controls="controls" width="500" height="300"></video>
