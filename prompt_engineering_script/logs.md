@@ -133,6 +133,8 @@ Based on the hierarchy of this human model, generate a C# animation script for t
 ## Notes
 - Human Model Hierarchy JSON
 - +Rotation specifications (examples / detailed specifications / detailed examples) and ground specifications
+    - Still not good in ground detection
+    - The moving directions of body parts are sometimes wrong
 
 ## Showcases
 
