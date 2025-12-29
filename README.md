@@ -1,0 +1,1 @@
+How Much Do Large Language Models Know about Human Motion? A Case Study in 3D Avatar Control (EMNLP 2025 Findings)

@@ -1,0 +1,2 @@
+system_prompt = "You will be given a textual human motion instruction, followed by a sequence of clarification questions about different aspects about the motion.\
+You should use your daily knowledge about human motions to answer the questions accurately and concisely."
